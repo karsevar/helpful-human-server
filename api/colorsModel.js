@@ -9,13 +9,18 @@ function findColorById(colorId) {
 }
 
 function findColorsPagination(pageNumber) {
-  return db("colors").paginate({ perPage: 15, currentPage: pageNumber });
+  return db("colors").paginate({ perPage: 12, currentPage: pageNumber });
+}
+
+function findLastColorId() {
+  return db("colors").max("id");
 }
 
 module.exports = {
   findAllColors,
   findColorById,
   findColorsPagination,
+  findLastColorId,
 };
 
 // https://animaapp.github.io/sketch-web-viewer/

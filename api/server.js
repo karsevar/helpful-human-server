@@ -75,4 +75,25 @@ server.get("/getColorsByPagination", (req, res) => {
     });
 });
 
+server.get("/getLastIndex", (req, res) => {
+  colorsDb
+    .findLastColorId()
+    .then((lastId) => {
+      // find the maximum number of pages the current number of color
+      // entries can fill
+      const maximumPages = Math.ceil(lastId[0]["max(`id`)"] / 12);
+      res.status(200).json({
+        message: "Returning the last Index Value in the Database",
+        data: lastId[0]["max(`id`)"],
+        maxPages: maximumPages,
+      });
+    })
+    .catch((error) => {
+      res.status(500).json({
+        message: "Something is wrong with the database",
+        error: error,
+      });
+    });
+});
+
 module.exports = server;
