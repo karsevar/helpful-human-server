@@ -1008,21 +1008,5 @@ exports.seed = function (knex) {
       name: "Grey78",
       hexString: "#c6c6c6",
     },
-    {
-      name: "Grey82",
-      hexString: "#d0d0d0",
-    },
-    {
-      name: "Grey85",
-      hexString: "#dadada",
-    },
-    {
-      name: "Grey89",
-      hexString: "#e4e4e4",
-    },
-    {
-      name: "Grey93",
-      hexString: "#eeeeee",
-    },
   ]);
 };
